@@ -1,0 +1,13 @@
+doctype html
+html lang="en" dir='ltr'
+  head
+    = render :partial => 'head'
+  body id="#{@act}" class="#{@con}"
+    #header.row
+      .columns.large-12
+        = render :partial => 'header'
+    #content.row
+      .columns.large-12
+        = yield
+    = render :partial => 'foot'
+                      
