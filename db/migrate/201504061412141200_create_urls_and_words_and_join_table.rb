@@ -1,4 +1,4 @@
-class CreateWords < ActiveRecord::Migration
+class CreateUrlsAndWordsAndJoinTable < ActiveRecord::Migration
   def change
 
     create_table :urls do |t|
@@ -16,7 +16,7 @@ class CreateWords < ActiveRecord::Migration
       t.integer :word_id
     end
 
-    add_index :urls_words, :urls_id
+    add_index :urls_words, :url_id
     add_index :urls_words, :word_id
   end
 end
