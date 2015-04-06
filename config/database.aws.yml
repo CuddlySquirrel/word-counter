@@ -1,5 +1,6 @@
 default: &default
   adapter: postgresql
+  database: rails-word-count
   host: localhost
   encoding: unicode
   pool: 5

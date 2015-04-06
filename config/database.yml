@@ -1,6 +1,7 @@
 default: &default
   adapter: postgresql
   encoding: unicode
+  database: rails-word-count
   pool: 5
   timeout: 5000
   username: <%= ENV['USER'] %>
