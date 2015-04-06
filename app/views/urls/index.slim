@@ -3,4 +3,14 @@
     .title.row
       .columns.large-12
         h1 All Scraped Urls
+  .columns.large-12
+    ul.list.row
+      .columns.large-12
+        - @list.each do |url|
+          .item.row
+            .value.columns.large-12
+              a(href="#{url.value}") =url.value
+            .columns.large-12 other stuff will go here
+            
+                  
     

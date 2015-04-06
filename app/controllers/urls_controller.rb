@@ -1,14 +1,21 @@
 class UrlsController < ApplicationController
   def index
-    @list = Url.all.to_a.sort_by.sort_by{|k|k['name'].downcase}
+    @list = Url.all.to_a.sort_by{|k|k['value'].downcase}
   end
   
   def new
+    @errors = {}
   end
 
   def create
-    Url.create :value => params[:value]
-    redirect_to urls_path
+    url = Url.new :value => params[:value]
+    if url.valid?
+      url.save!
+      redirect_to urls_path
+    else
+      @errors = url.errors.messages
+      render new_url_path
+    end
   end
 
   def show

@@ -9,6 +9,16 @@
       .columns.large-12
         form action="#{urls_path}" method="post" accept-charset='UTF-8'
           input type='hidden' name='authenticity_token' value="#{form_authenticity_token}"
-          input id='new_url' type='text' name='name'
+          input id='new_url' type='text' name='value'
           input type='submit' value='submit'
           url.hide for='new_url' New url value
+    - if @errors.present?
+      .errors.row
+        - @errors.each do |param, messages|
+          - messages.each do |message|
+            span.error.columns.large-12
+              .row
+                .param.columns.large-4
+                  = param
+                .message.columns.large-8
+                  = message
