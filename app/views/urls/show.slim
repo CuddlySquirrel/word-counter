@@ -2,17 +2,15 @@
   .columns.large-12
     .title.row
       .columns.large-12
-        h1 Showing The url 
-    .name.row
+        h1 Showing The Url
+    .value.row
       .columns.large-12
-        h2
-          = @url['name']
-    .ops.row
-      .edit.columns.large-3.push-3
-        = link_to 'Edit This url', edit_url_path(@url['id'])
-      .delete.columns.large-3.pull-3
-        form action="#{url_path(@url['id'])}" method="post" accept-charset='UTF-8'
-          input type='hidden' name='authenticity_token' value="#{form_authenticity_token}"
-          input type='hidden' name='_method' value="delete"
-          input.submit type='submit' value='Delete This url'
-          label.hide for='delete_url' Delete url #{@url['name']}
+        a(href="#{@url.value}") = @url.value
+    .popularities.row
+      .columns.large-12
+        - @url.top_ten.each do |p|
+          .popularity.row
+          .columns.large-6
+            = p.word.value
+          .columns.large-6
+            = p.occurrences

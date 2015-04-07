@@ -17,7 +17,7 @@ class UrlsController < ApplicationController
     
     url = Url.new value: value
     if url.valid?
-      url.save
+      url.save!
       redirect_to url_path url.id
     else
       @errors = url.errors.messages

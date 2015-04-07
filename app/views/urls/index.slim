@@ -7,10 +7,16 @@
     ul.list.row
       .columns.large-12
         - @list.each do |url|
+          - p = url.most_popular
           .item.row
             .value.columns.large-12
-              a(href="#{url.value}") =url.value
-            .columns.large-12 other stuff will go here
-            
+              a(href="#{url_path url.id}") =url.value
+            .columns.large-12 
+              .row
+                .columns.large-2
+                  = p.word.value
+                .columns.large-10
+                  = p.occurrences
+          
                   
     
