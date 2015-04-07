@@ -3,20 +3,20 @@ class CreateUrlsAndWordsAndJoinTable < ActiveRecord::Migration
 
     create_table :urls do |t|
       t.string :value
-      t.timestamps
+      t.timestamps null: false
     end
 
     create_table :words do |t|
       t.string :value
-      t.timestamps
+      t.timestamps null: false
     end
 
-    create_table :urls_words, id: false do |t|
-      t.integer :url_id
-      t.integer :word_id
+    create_table :popularities, id: false do |t|
+      t.belongs_to :url, index: true
+      t.belongs_to :word, index: true
+      t.integer :occurrences
+      t.timestamps null: false
     end
 
-    add_index :urls_words, :url_id
-    add_index :urls_words, :word_id
   end
 end

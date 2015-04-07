@@ -16,24 +16,27 @@ ActiveRecord::Schema.define(version: 201504061412141200) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "popularities", id: false, force: true do |t|
+    t.integer  "url_id"
+    t.integer  "word_id"
+    t.integer  "occurrences"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "popularities", ["url_id"], name: "index_popularities_on_url_id", using: :btree
+  add_index "popularities", ["word_id"], name: "index_popularities_on_word_id", using: :btree
+
   create_table "urls", force: true do |t|
     t.string   "value"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
-
-  create_table "urls_words", id: false, force: true do |t|
-    t.integer "url_id"
-    t.integer "word_id"
-  end
-
-  add_index "urls_words", ["url_id"], name: "index_urls_words_on_url_id", using: :btree
-  add_index "urls_words", ["word_id"], name: "index_urls_words_on_word_id", using: :btree
 
   create_table "words", force: true do |t|
     t.string   "value"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
