@@ -1,5 +1,6 @@
 default: &default
   adapter: postgresql
+  host: localhost
   encoding: unicode
   pool: 5
   timeout: 5000
@@ -7,15 +8,15 @@ default: &default
 
 development:
   <<: *default
-  database: rails-word-count/development
+  database: word-count/development
 
 test:
   <<: *default
-  database: rails-word-count/test
+  database: word-count/test
 
 production:
   <<: *default
-  database: rails-word-count/production
+  database: word-count/production
   username: <%= ENV['RDS_USERNAME'] %>
   password: <%= ENV['RDS_PASSWORD'] %>
   host: <%= ENV['RDS_HOSTNAME'] %>
