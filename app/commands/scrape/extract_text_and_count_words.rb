@@ -42,7 +42,6 @@ module Scrape
         node.children.remove
         node.content = ''
       end
-      
       html.text.gsub(/\W/,' ').gsub(/\s+/, ' ').sub(/\A\s+|\s+\Z/,'')
     end
     
