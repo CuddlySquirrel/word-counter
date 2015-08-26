@@ -5,6 +5,7 @@ default: &default
   pool: 5
   timeout: 5000
   username: <%= ENV['USER'] %>
+  password: password
 
 development:
   <<: *default
