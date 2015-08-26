@@ -18,3 +18,11 @@
 # sass caching dirs and their files
  **/.sass-cache
  **/.sass-cache/*
+
+ # some scripts I use
+ /fix
+ /install
+ /pry
+
+ # rvm ruby version
+ /.ruby-version
