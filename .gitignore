@@ -20,9 +20,9 @@
  **/.sass-cache/*
 
  # some scripts I use
- /fix
- /install
- /pry
+fix
+install
+pry
 
  # rvm ruby version
- /.ruby-version
+.ruby-version
