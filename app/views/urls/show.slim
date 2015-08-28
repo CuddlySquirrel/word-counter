@@ -8,7 +8,7 @@
         a(href="#{@url.value}") = @url.value
     .popularities.row
       .columns.large-12
-        - @url.top_ten.each do |p|
+        - @url.top_ten_words.each do |p|
           .popularity.row
           .columns.large-6
             = p.word.value

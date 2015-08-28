@@ -7,16 +7,19 @@ class Url < ActiveRecord::Base
   after_save :after_save
 
   def most_popular
-    top_ten.shift
+    top_ten_words.shift
   end
 
-  def top_ten
+  def top_ten_words
     popularities.sort{|a,b|b.occurrences <=> a.occurrences}.to_a
   end
 
+
+  private
+
   def after_save
-    top_ten = Scrape::ExtractTextAndCountWords.new(self[:value]).execute()
-    top_ten.each do |word,occurrences|
+    counted_words = Scrape::ExtractTextAndCountWords.new(self[:value]).execute()
+    scrape_command.each do |word,occurrences|
       word = Word.find_or_create_by( value: word )
       Popularity.create(url_id: self[:id], word_id: word.id, occurrences: occurrences )
     end
