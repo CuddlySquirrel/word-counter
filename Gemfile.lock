@@ -148,7 +148,7 @@ PLATFORMS
 
 DEPENDENCIES
   coffee-rails (~> 4.0.0)
-  factory_girl_rails
+  factory_girl_rails (~> 4.5.0)
   haml-rails (~> 0.5.3)
   nokogiri
   pg
