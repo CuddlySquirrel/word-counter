@@ -2,7 +2,7 @@ require 'rails_helper'
 
 FactoryGirl.define do
   factory :url do
-    value 'http://www.ebay.com/'    
+    value Faker::Internet.url
   end
 
 end
