@@ -10,9 +10,9 @@ gem 'coffee-rails', '~> 4.0.0'
 
 gem 'nokogiri'
 
-group :development, :test do 
+
+group :test do 
   gem 'rspec-rails', '~> 3.0.0'
   gem 'factory_girl_rails'
   gem 'faker'
-  gem 'pry-rails'
 end
