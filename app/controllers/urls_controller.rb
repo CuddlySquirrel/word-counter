@@ -1,6 +1,6 @@
 class UrlsController < ApplicationController
   def index
-    @list = Url.all.to_a.sort_by{|k|k['value'].downcase}
+    @urls = Url.order(:value)
   end
   
   def new
@@ -16,8 +16,7 @@ class UrlsController < ApplicationController
     end
     
     url = Url.new value: value
-    if url.valid?
-      url.save!
+    if url.save
       redirect_to url_path url.id
     else
       @errors = url.errors.messages

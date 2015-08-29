@@ -6,10 +6,6 @@ class Url < ActiveRecord::Base
 
   after_save :associate_words_and_popularities
 
-  def most_popular
-    top_ten_words.shift
-  end
-
   def top_ten_words
     popularities.sort{|a,b|b.occurrences <=> a.occurrences}.to_a
   end

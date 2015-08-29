@@ -2,16 +2,16 @@
     .title.row
       h1 All Scraped Urls
     ul.list.row
-        - @list.each do |url|
-          - most_popular_word = url.most_popular
+        - @urls.each do |url|
+          - most_popular_word = helper_most_popular_word(url)
           .item.row
             .value
               a(href="#{url_path url.id}") =url.value
               .row
                 .columns.large-2
-                  = most_popular_word.word.value
+                  = most_popular_word[:value]
                 .columns.large-10
-                  = most_popular_word.occurrences
+                  = most_popular_word[:occurrences]
           
                   
     
