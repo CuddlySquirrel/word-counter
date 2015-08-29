@@ -1,22 +1,17 @@
 .url.row
-  .columns.large-12
     .title.row
-      .columns.large-12
-        h1 All Scraped Urls
-  .columns.large-12
+      h1 All Scraped Urls
     ul.list.row
-      .columns.large-12
         - @list.each do |url|
-          - p = url.most_popular
+          - most_popular_word = url.most_popular
           .item.row
-            .value.columns.large-12
+            .value
               a(href="#{url_path url.id}") =url.value
-            .columns.large-12 
               .row
                 .columns.large-2
-                  = p.word.value
+                  = most_popular_word.word.value
                 .columns.large-10
-                  = p.occurrences
+                  = most_popular_word.occurrences
           
                   
     
