@@ -1,16 +1,12 @@
 .url.show.row
-  .columns.large-12
-    .title.row
-      .columns.large-12
-        h1 Showing The Url
-    .value.row
-      .columns.large-12
-        a(href="#{@url.value}") = @url.value
-    .popularities.row
-      .columns.large-12
-        - @url.top_ten_words.each do |p|
-          .popularity.row
-          .columns.large-6
-            = p.word.value
-          .columns.large-6
-            = p.occurrences
+  .title.row
+    h1 Showing The Url
+  .value.row
+    a(href="#{@url.value}") = @url.value
+  .popularities.row
+    - helper_top_ten_words(@url).each do |word|
+      .popularity.row
+      .columns.large-6
+        = word[:value]
+      .columns.large-6
+        = word[:occurrences]
