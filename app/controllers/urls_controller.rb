@@ -9,6 +9,7 @@ class UrlsController < ApplicationController
 
   def create
     value = params[:value] 
+
     url = Url.find_by_value value
     if url
       redirect_to url_path url.id
@@ -17,6 +18,7 @@ class UrlsController < ApplicationController
     
     url = Url.new value: value
     if url.save
+      CreateUrlWordCounts.new(url).create
       redirect_to url_path url.id
     else
       @errors = url.errors.messages
