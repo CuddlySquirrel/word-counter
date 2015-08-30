@@ -4,8 +4,8 @@ class TextFromHTML
   
   attr_accessor :html
 
-  def initialize(html)
-    @html = html 
+  def initialize(nokogiri_html_document)
+    @html = nokogiri_html_document 
   end
 
   def create
@@ -40,6 +40,6 @@ class TextFromHTML
   end
 
   def remove_extra_spaces(text)
-    text.gsub(/\s+/, ' ').sub(/\A\s+|\s+\Z/,'')
+    text.gsub(/\s+/, ' ').sub(/\A\s+|\s+$/,'')
   end
 end
