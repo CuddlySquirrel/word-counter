@@ -18,7 +18,7 @@ class UrlsController < ApplicationController
     
     url = Url.new value: value
     if url.save
-      CreateUrlWordCounts.new(url).create
+      CreateWordsAndPopularitiesForUrl.new(url).create()
       redirect_to url_path url.id
     else
       @errors = url.errors.messages
