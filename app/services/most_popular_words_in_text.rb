@@ -1,15 +1,17 @@
-class CountWordsOnWebpage
+class MostPopularWordsInText
  
-  attr_accessor :url_str
+  attr_accessor :text
 
-  def initialize(url_str)
-    html = HTMLFromUrl.new(url_str).create()
-    @text = TextFromHTML.new(html).create()
+  def initialize(text)
+    @text = text
   end
 
   def create
     most_popular_words(10)
   end
+  
+
+  private
 
   def most_popular_words(top_list_length)
     top = []
