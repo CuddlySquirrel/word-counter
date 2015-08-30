@@ -14,6 +14,10 @@ class HTMLFromUrl
     Nokogiri::HTML(html)
   end
 
+  def html_get
+    open(@url)
+  end
+
 
   private
 

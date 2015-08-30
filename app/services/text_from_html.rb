@@ -16,6 +16,9 @@ class TextFromHTML
     text = remove_extra_spaces(text)
   end
 
+
+  private
+
   def remove_script_tags(html)
     html.search('//script').each do |node|
       node.children.remove
