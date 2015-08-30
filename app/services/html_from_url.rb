@@ -10,6 +10,15 @@ class HTMLFromUrl
   end
 
   def create
-    Nokogiri::HTML(open(@url))                                                                                                                                                                                                
+    html = html_get
+    Nokogiri::HTML(html)
   end
+
+
+  private
+
+  def html_get
+    open(@url)
+  end
+    
 end
