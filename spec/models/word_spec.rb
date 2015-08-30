@@ -9,4 +9,18 @@ describe Word do
   end
 
 
+  describe 'validations' do
+
+    it 'requires value' do 
+      word = Word.new(value: '')
+      expect(word).to_not be_valid
+    end
+
+    it 'requires unique value' do
+      existing = FactoryGirl.create(:word)
+      word = Word.new(value: existing.value)
+      expect(word).to_not be_valid
+    end
+
+  end
 end
